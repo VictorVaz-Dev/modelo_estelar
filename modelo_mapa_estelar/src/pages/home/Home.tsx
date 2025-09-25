@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Particles from "react-tsparticles";
 import starMapImg from "../../assets/fotos/ceu_estrelado_personalizacao_final.png"; 
 import foto1 from "../../assets/fotos/casal_modelo_1.png";
 import foto2 from "../../assets/fotos/casal_modelo_2.png";
+import ElectricBorder from '../../reactbits/eletricborder'
 
 // Hook contador
 const useRelationshipTimer = (startDate: string) => {
@@ -40,14 +41,36 @@ const useRelationshipTimer = (startDate: string) => {
   return time;
 };
 
-export default function LoveStars() {
+export default function Home() {
+  const [showSite, setShowSite] = useState(false); // controla se o site aparece
   const time = useRelationshipTimer("2024-06-20"); 
-
   const photos = [foto1,foto2,foto1,foto2,foto1,foto2];
 
+  // Tela inicial
+  if (!showSite) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-black text-white">
+          <ElectricBorder
+            color="#5f61d3ff"
+            speed={1.5}
+            chaos={0.5}
+            thickness={4}
+            style={{ borderRadius: 16 }}
+          >
+        <button
+          onClick={() => setShowSite(true)}
+          className="m-1 px-8 py-4 bg-transparent text-xl font-bold hover:bg-indigo-500 hover:cursor-pointer transition"
+        >
+          Entrar no site
+        </button>
+        </ElectricBorder>
+      </div>
+    );
+  }
+
+  // Conteúdo principal do site
   return (
     <div className="relative min-h-screen bg-black text-white overflow-hidden">
-      {/* Partículas estrelas */}
       <Particles
         id="tsparticles"
         options={{
@@ -71,7 +94,7 @@ export default function LoveStars() {
         <p className="text-lg sm:text-xl md:text-lg max-w-2xl">
           Já imaginou se o universo pudesse nos contar quanto tempo estamos juntos nessa vida? Estamos juntos há:
         </p>
-        <p className="text-lg sm:text-xl md:text-2xl mb-4 mt-4 font-bold text-indigo-600">
+        <p className="text-xl md:text-2xl mb-4 mt-4 font-bold text-indigo-600">
           {time.years} anos, {time.days} dias, {time.hours}h {time.minutes}m {time.seconds}s
         </p>
 
@@ -84,7 +107,7 @@ export default function LoveStars() {
           <img
             src={starMapImg}
             alt="Mapa estelar"
-            className="rounded-xl shadow-lg w-full max-w-sm sm:max-w-md md:max-w-lg transition-transform duration-300 ease-in-out md:hover:scale-110 cursor-zoom-in"
+            className="rounded-xl shadow-lg w-full max-w-sm sm:max-w-md md:max-w-lg transition-transform duration-300 ease-in-out md:hover:scale-150 cursor-zoom-in"
           />
         </div>
 
@@ -108,3 +131,4 @@ export default function LoveStars() {
     </div>
   );
 }
+    
