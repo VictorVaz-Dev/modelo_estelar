@@ -87,9 +87,8 @@ export default function LoveStars() {
         <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white">
           O Universo testemunhou nosso momento 🌌
         </h1>
-        <p className="md:text-2xl">Já imaginou se o universo pudesse nos contar quanto tempo estamos juntos nessa vida? </p>
-        <p className="text-lg md:text-2xl mb-4">Estamos juntos há: <br/></p>
-        <p className="text-lg md:text-2xl mb-4">
+        <p className="text-xl md:text-lg">Já imaginou se o universo pudesse nos contar quanto tempo estamos juntos nessa vida? Estamos juntos há:</p>
+        <p className="text-lg md:text-2xl mb-4 mt-4">
           <span className="font-bold text-indigo-600">
             {time.years} anos, {time.days} dias, {time.hours}h {time.minutes}m{" "}
             {time.seconds}s
@@ -98,8 +97,8 @@ export default function LoveStars() {
 
         {/* Mapa estelar */}
         <div className="mb-8 flex flex-col items-center ">
-          <h2 className="text-lg md:text-xl font-semibold mt-2">Era assim que o céu estava no nosso dia especial 🌌</h2>
-          <p className="text-lg ">Uma pequena recordação de como o céu estava exatamente na data, horário e local do nosso momento mais especial: </p>
+          <h2 className="text-xl font-semibold mt-2">Era assim que o céu estava no nosso dia especial🌌</h2>
+          <p className="text-xl p-2">Uma pequena recordação de como o céu estava exatamente na data, horário e local do nosso momento mais especial: </p>
           <img
             src={starMapImg}
             alt="Mapa estelar"
@@ -110,8 +109,8 @@ export default function LoveStars() {
         </div>
 
         {/* Galeria de fotos */}
-        <h2 className="text-xl font-semibold mt-4">Nossas Memórias 🌌</h2>
-        <p className="p-2 text-xl">cada momento que passei com você foi unico, aqui estão as fotos de alguns dos nossos momentos, mas com certeza teremos muitos mais durante nossa vida juntos</p>
+        <h2 className="text-xl font-semibold mt-4">Nossas Memórias🌌</h2>
+        <p className="p-2 text-xl">cada momento que passei com você foi unico, aqui estão as fotos de alguns dos nossos momentos, mas com certeza teremos muitos mais durante nossa vida juntos:</p>
         <p></p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {photos.map((photo, idx) => (
