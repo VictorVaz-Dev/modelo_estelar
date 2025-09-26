@@ -13,6 +13,7 @@ const images = [
 const useRelationshipTimer = (startDate: string) => {
   const [time, setTime] = React.useState({
     years: 0,
+    months: 0,
     days: 0,
     hours: 0,
     minutes: 0,
@@ -29,11 +30,13 @@ const useRelationshipTimer = (startDate: string) => {
       const minutes = Math.floor(seconds / 60);
       const hours = Math.floor(minutes / 60);
       const days = Math.floor(hours / 24);
-      const years = Math.floor(days / 365);
+      const months = Math.floor(days / 30);
+      const years = Math.floor(months / 12);
 
       setTime({
         years,
-        days: days % 365,
+        months: months % 12,
+        days: days % 365 % 30,
         hours: hours % 24,
         minutes: minutes % 60,
         seconds: seconds % 60,
@@ -48,15 +51,14 @@ const useRelationshipTimer = (startDate: string) => {
 export default function Home() {
   const [loading, setLoading] = useState(false);
   const [showSite, setShowSite] = useState(false);
-  const time = useRelationshipTimer("2024-06-20");
-
+  const time = useRelationshipTimer("2024-08-26");
   // Tela inicial (antes de clicar)
   if (!loading && !showSite) {
     return (
       <div className="relative flex items-center justify-center min-h-screen bg-black text-white overflow-hidden">
         {/* fundo galáxia */}
         <div className="absolute inset-0">
-          <Galaxy 
+          <Galaxy
             mouseRepulsion={false}
             mouseInteraction={true}
             density={3}
@@ -90,7 +92,7 @@ export default function Home() {
     return (
       <div className="relative flex flex-col items-center justify-center min-h-screen bg-black text-white overflow-hidden">
         <div className="absolute inset-0">
-          <Galaxy 
+          <Galaxy
             mouseRepulsion={false}
             mouseInteraction={true}
             density={3}
@@ -112,7 +114,7 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-black text-white overflow-x-hidden">
       <div className="absolute inset-0 z-0">
-       
+
       </div>
 
       <div className="relative z-10 flex flex-col items-center px-4 py-6 md:px-12 md:py-12 text-center">
@@ -123,7 +125,7 @@ export default function Home() {
           Já imaginou se o universo pudesse contar quanto tempo estamos juntos nessa vida? Bom... aqui está a resposta:
         </p>
         <p className="text-2xl md:text-3xl mb-4 mt-4 font-bold text-indigo-600">
-          {time.years} anos, {time.days} dias, {time.hours}h {time.minutes}m {time.seconds}s
+          {time.years} {time.years > 1 ? `anos` : `ano`}, {time.months} {time.months > 1 ? `meses` : `mes`}, {time.days} {time.days > 1 ? `dias` : `dia`}, {time.hours}h {time.minutes}m {time.seconds}s
         </p>
 
         {/* Galeria */}
