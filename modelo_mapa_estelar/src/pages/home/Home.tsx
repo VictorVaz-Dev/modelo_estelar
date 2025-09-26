@@ -128,7 +128,7 @@ export default function Home() {
           Já imaginou se o universo pudesse contar quanto tempo estamos juntos nessa vida? Bom... aqui está a resposta:
         </p>
         <p className="text-2xl md:text-3xl mb-4 mt-4 font-bold text-indigo-600">
-          {time.years} {time.years > 1 ? `anos` : `ano`}, {time.months} {time.months > 1 ? `meses` : `mês`}, {time.days} {time.days > 1 ? `dias e` : `dia e`}  {time.hours}h {time.minutes}m {time.seconds}s
+          {time.years < 1 ? `` : `${time.years > 1 ? `${time.years} anos` : `${time.years} ano`}`},  {time.months < 1 ? `` : `${time.months > 1 ? `${time.months} meses` : `${time.months} mês`}`},  {time.days < 1 ? `` : `${time.days > 1 ? `${time.days} dias e` : `${time.days} dia`}`}  {time.hours}h {time.minutes}m {time.seconds}s
         </p>
 
         {/* Galeria */}
