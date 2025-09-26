@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import starMapImg from "../../assets/fotos/ceu_estrelado_personalizacao_final.png"; 
 import ParticlesSky from '../../reactbits/particles';
 import Stack from '../../reactbits/stack'
@@ -49,6 +49,21 @@ const useRelationshipTimer = (startDate: string) => {
 export default function Home() {
   const [showSite, setShowSite] = useState(false);
   const time = useRelationshipTimer("2024-06-20"); 
+
+  // 👇 estado para dimensões responsivas do Stack
+  const [cardSize, setCardSize] = useState({ width: 400, height: 400 });
+
+  useEffect(() => {
+    const handleResize = () => {
+      // largura 80% da tela, limitado a 400px
+      const width = Math.min(window.innerWidth * 0.8, 400);
+      setCardSize({ width, height: width }); // altura igual à largura
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Tela inicial com partículas em full screen
   if (!showSite) {
@@ -116,13 +131,11 @@ export default function Home() {
 
         {/* circular gallery centralizada, com touch suave */}
         <div className="flex justify-center items-center w-full mt-6">
-          
-            
           <Stack
             randomRotation={true}
             sensitivity={180}
             sendToBackOnClick={false}
-            cardDimensions={{ width: 400, height: 400 }}
+            cardDimensions={cardSize} // agora responsivo
             cardsData={images}
           />
         </div>
