@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import starMapImg from "../../assets/fotos/ceu_estrelado_personalizacao_final.png"; 
-import foto1 from "../../assets/fotos/casal_modelo_1.png";
-import foto2 from "../../assets/fotos/casal_modelo_2.png";
 import ElectricBorder from '../../reactbits/eletricborder'
 import CircularGallery from '../../reactbits/circularGallery'
 import ParticlesSky from '../../reactbits/particles';
