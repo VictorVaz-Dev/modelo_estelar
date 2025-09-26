@@ -51,7 +51,7 @@ const useRelationshipTimer = (startDate: string) => {
 export default function Home() {
   const [loading, setLoading] = useState(false);
   const [showSite, setShowSite] = useState(false);
-  const time = useRelationshipTimer("2024-08-26");
+  const time = useRelationshipTimer("2024-07-26");
   // Tela inicial (antes de clicar)
   if (!loading && !showSite) {
     return (
@@ -128,7 +128,7 @@ export default function Home() {
           Já imaginou se o universo pudesse contar quanto tempo estamos juntos nessa vida? Bom... aqui está a resposta:
         </p>
         <p className="text-2xl md:text-3xl mb-4 mt-4 font-bold text-indigo-600">
-          {time.years} {time.years > 1 ? `anos` : `ano`}, {time.months} {time.months > 1 ? `meses` : `mes`}, {time.days} {time.days > 1 ? `dias` : `dia`}, {time.hours}h {time.minutes}m {time.seconds}s
+          {time.years} {time.years > 1 ? `anos` : `ano`}, {time.months} {time.months > 1 ? `meses` : `mês`}, {time.days} {time.days > 1 ? `dias e` : `dia e`}  {time.hours}h {time.minutes}m {time.seconds}s
         </p>
 
         {/* Galeria */}
