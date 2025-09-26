@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import Particles from "react-tsparticles";
 import starMapImg from "../../assets/fotos/ceu_estrelado_personalizacao_final.png"; 
 import foto1 from "../../assets/fotos/casal_modelo_1.png";
 import foto2 from "../../assets/fotos/casal_modelo_2.png";
 import ElectricBorder from '../../reactbits/eletricborder'
+import CircularGallery from '../../reactbits/circularGallery'
+import ParticlesSky from '../../reactbits/particles';
+
 
 // Hook contador
 const useRelationshipTimer = (startDate: string) => {
@@ -44,22 +46,35 @@ const useRelationshipTimer = (startDate: string) => {
 export default function Home() {
   const [showSite, setShowSite] = useState(false); // controla se o site aparece
   const time = useRelationshipTimer("2024-06-20"); 
-  const photos = [foto1,foto2,foto1,foto2,foto1,foto2];
+  
 
   // Tela inicial
   if (!showSite) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-black text-white">
+        <div style={{ width: '100%', height: '100%', position: 'absolute' }}>
+            <ParticlesSky
+            particleColors={['#ffffff', '#ffffff']}
+            particleCount={200}
+            particleSpread={10} 
+            speed={0.2} 
+            particleBaseSize={100}
+            moveParticlesOnHover={true}
+            alphaParticles={false}
+            disableRotation={false}
+          />
+        </div>
           <ElectricBorder
             color="#5f61d3ff"
             speed={1.5}
             chaos={0.5}
             thickness={4}
             style={{ borderRadius: 16 }}
+          
           >
         <button
           onClick={() => setShowSite(true)}
-          className="m-1 px-8 py-4 bg-transparent text-xl font-bold hover:bg-indigo-500 hover:cursor-pointer transition"
+          className="m-1 px-8 py-4 bg-transparent text-xl font-bold hover:text-indigo-500 hover:cursor-pointer transition position-absolute"
         >
           Entrar no site
         </button>
@@ -69,24 +84,8 @@ export default function Home() {
   }
 
   // Conteúdo principal do site
-  return (
+  return (  
     <div className="relative min-h-screen bg-black text-white overflow-hidden">
-      <Particles
-        id="tsparticles"
-        options={{
-          background: { color: "transparent" },
-          particles: {
-            number: { value: 100 },
-            color: { value: "#ffffff" },
-            shape: { type: "circle" },
-            opacity: { value: 0.8, random: true },
-            size: { value: 1.5, random: true },
-            move: { enable: true, speed: 0.2 },
-          },
-        }}
-        className="absolute inset-0"
-      />
-
       <div className="relative z-10 flex flex-col items-center px-4 py-6 md:px-12 md:py-12 text-center">
         <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4">
           O Universo testemunhou nosso momento 🌌
@@ -117,16 +116,10 @@ export default function Home() {
           Cada momento que passei com você foi único, aqui estão as fotos de alguns dos nossos momentos, mas com certeza teremos muitos mais durante nossa vida juntos:
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full justify-items-center">
-          {photos.map((photo, idx) => (
-            <img
-              key={idx}
-              src={photo}
-              alt={`Foto ${idx + 1}`}
-              className="w-52 sm:w-56 md:w-60 h-64 sm:h-72 md:h-80 object-cover rounded-xl shadow-lg transition duration-300 ease-in-out hover:opacity-80 hover:scale-105"
-            />
-          ))}
+        <div style={{ width: '600px', height: '600px', position: 'relative' }}>
+          <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} scrollEase={0.02} scrollSpeed={1}/>
         </div>
+        
       </div>
     </div>
   );
