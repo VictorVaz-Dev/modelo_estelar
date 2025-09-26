@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Galaxy from '../../reactbits/galaxy';
 import Stack from '../../reactbits/stack';
+import Particles from '../../reactbits/particles';
 
 const images = [
   { id: 1, img: "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?q=80&w=500&auto=format" },
@@ -58,13 +58,15 @@ export default function Home() {
       <div className="relative flex items-center justify-center min-h-screen bg-black text-white overflow-hidden">
         {/* fundo galáxia */}
         <div className="absolute inset-0">
-          <Galaxy
-            mouseRepulsion={false}
-            mouseInteraction={true}
-            density={3}
-            glowIntensity={0.3}
-            saturation={0}
-            hueShift={240}
+          <Particles
+            particleColors={['#ffffff', '#ffffff']}
+            particleCount={1000}
+            particleSpread={10}
+            speed={0.1}
+            particleBaseSize={100}
+            moveParticlesOnHover={true}
+            alphaParticles={false}
+            disableRotation={false}
           />
         </div>
 
@@ -92,13 +94,15 @@ export default function Home() {
     return (
       <div className="relative flex flex-col items-center justify-center min-h-screen bg-black text-white overflow-hidden">
         <div className="absolute inset-0">
-          <Galaxy
-            mouseRepulsion={false}
-            mouseInteraction={true}
-            density={3}
-            glowIntensity={0.3}
-            saturation={0}
-            hueShift={240}
+          <Particles
+            particleColors={['#ffffff', '#ffffff']}
+            particleCount={1000}
+            particleSpread={10}
+            speed={0.1}
+            particleBaseSize={100}
+            moveParticlesOnHover={true}
+            alphaParticles={false}
+            disableRotation={false}
           />
         </div>
         <div className="flex flex-col items-center space-y-4">
@@ -116,7 +120,6 @@ export default function Home() {
       <div className="absolute inset-0 z-0">
 
       </div>
-
       <div className="relative z-10 flex flex-col items-center px-4 py-6 md:px-12 md:py-12 text-center">
         <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4">
           Para a minha estrela mais brilhante 🌟
