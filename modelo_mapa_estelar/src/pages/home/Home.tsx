@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import Stack from '../../reactbits/stack';
 import Particles from '../../reactbits/particles';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
 
 const images = [
   { id: 1, img: "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?q=80&w=500&auto=format" },
   { id: 2, img: "https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=500&auto=format" },
   { id: 3, img: "https://images.unsplash.com/photo-1452626212852-811d58933cae?q=80&w=500&auto=format" },
-  { id: 4, img: "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=500&auto=format" }
+  { id: 4, img: "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=500&auto=format" },
+  { id: 5, img: "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=500&auto=format" },
+  { id: 6, img: "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=500&auto=format" },
 ];
 
 // Hook contador
@@ -137,16 +141,42 @@ export default function Home() {
           Cada instante que passei com você foi único, aqui estão algumas fotos dos nossos momentos:
         </p>
 
-        <div className="flex justify-center items-center w-full mt-6">
-          <div className="hidden md:block">
-            <Stack
-              randomRotation={true}
-              sensitivity={150}
-              sendToBackOnClick={false}
-              cardDimensions={{ width: 350, height: 400 }}
-              cardsData={images}
-            />
-          </div>
+       
+       <div className="flex justify-center items-center w-full mt-6">
+        {/* Carrossel para desktop */}
+        <div className="hidden md:block w-full">
+          <Swiper
+            modules={[Autoplay]}
+            spaceBetween={20}
+            slidesPerView={2}
+            loop={true}
+            autoplay={{
+              delay: 1500,
+              disableOnInteraction: false,
+            }}
+            breakpoints={{
+              600: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+              },
+              900: {
+                slidesPerView: 4,
+                spaceBetween: 30,
+              },
+            }}
+            className="w-full"
+          >
+            {images.map((item) => (
+              <SwiperSlide key={item.id} className="aspect-[4/3]"> 
+                <img
+                  src={item.img}
+                  alt={`foto${item.id}`}
+                  className="w-300 h-64 object-contain rounded-lg"
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
           <div className="block md:hidden">
             <Stack
               randomRotation={true}
