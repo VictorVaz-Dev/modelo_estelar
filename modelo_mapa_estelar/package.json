@@ -16,6 +16,7 @@
     "motion-react": "^0.15.0-alpha.1",
     "ogl": "^1.0.11",
     "react": "^19.1.1",
+    "react-bits": "^1.0.5",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.9.2",
     "react-tsparticles": "^2.12.2",

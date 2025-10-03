@@ -55,7 +55,7 @@ const useRelationshipTimer = (startDate: string) => {
 export default function Home() {
   const [loading, setLoading] = useState(false);
   const [showSite, setShowSite] = useState(false);
-  const time = useRelationshipTimer("2024-08-26");
+  const time = useRelationshipTimer("2025-08-20");
   // Tela inicial (antes de clicar)
   if (!loading && !showSite) {
     return (
