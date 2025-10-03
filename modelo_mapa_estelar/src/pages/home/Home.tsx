@@ -167,11 +167,11 @@ export default function Home() {
             className="w-full"
           >
             {images.map((item) => (
-              <SwiperSlide key={item.id} className="aspect-[4/3]"> 
+              <SwiperSlide key={item.id}> 
                 <img
                   src={item.img}
                   alt={`foto${item.id}`}
-                  className="w-300 h-64 object-contain rounded-lg"
+                  className=""
                 />
               </SwiperSlide>
             ))}
