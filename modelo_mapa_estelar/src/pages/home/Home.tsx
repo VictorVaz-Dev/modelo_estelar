@@ -3,6 +3,7 @@ import Stack from '../../reactbits/stack';
 import Particles from '../../reactbits/particles';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
+import { Meteors } from "../../components/ui/meteors"
 
 const images = [
   { id: 1, img: "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?q=80&w=500&auto=format" },
@@ -121,8 +122,8 @@ export default function Home() {
   // Conteúdo principal do site (após carregar)
   return (
     <div className="relative min-h-screen bg-black text-white overflow-x-hidden">
-      <div className="absolute inset-0 z-0">
-
+      <div className="absolute inset-0 z-0 h-full w-full">
+        <Meteors number={60} />
       </div>
       <div className="relative z-10 flex flex-col items-center px-4 py-6 md:px-12 md:py-12 text-center">
         <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4">
@@ -176,6 +177,8 @@ export default function Home() {
               </SwiperSlide>
             ))}
           </Swiper>
+
+        {/* Stack para mobile */}
         </div>
           <div className="block md:hidden">
             <Stack
