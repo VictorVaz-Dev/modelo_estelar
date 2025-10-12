@@ -60,7 +60,7 @@ export default function Home() {
   // Tela inicial (antes de clicar)
   if (!loading && !showSite) {
     return (
-      <div className="relative flex items-center justify-center min-h-screen bg-black text-white overflow-hidden">
+      <div className="relative flex items-center justify-center min-h-screen cosmic-bg text-white overflow-hidden">
         {/* fundo galáxia */}
         <div className="absolute inset-0">
           <Particles
@@ -97,7 +97,7 @@ export default function Home() {
   // Tela de loading (após clicar)
   if (loading) {
     return (
-      <div className="relative flex flex-col items-center justify-center min-h-screen bg-black text-white overflow-hidden">
+      <div className="relative flex flex-col items-center justify-center min-h-screen cosmic-bg text-white overflow-hidden">
         <div className="absolute inset-0">
           <Particles
             particleColors={['#ffffff', '#ffffff']}
@@ -121,7 +121,7 @@ export default function Home() {
 
   // Conteúdo principal do site (após carregar)
   return (
-    <div className="relative min-h-screen bg-black text-white overflow-x-hidden">
+    <div className="relative cosmic-bg fullscreen text-white no-overflow">
       <div className="absolute inset-0 z-0 h-full w-full">
         <Meteors number={60} />
       </div>
@@ -142,44 +142,44 @@ export default function Home() {
           Cada instante que passei com você foi único, aqui estão algumas fotos dos nossos momentos:
         </p>
 
-       
-       <div className="flex justify-center items-center w-full mt-6">
-        {/* Carrossel para desktop */}
-        <div className="hidden md:block w-full">
-          <Swiper
-            modules={[Autoplay]}
-            spaceBetween={20}
-            slidesPerView={2}
-            loop={true}
-            autoplay={{
-              delay: 1500,
-              disableOnInteraction: false,
-            }}
-            breakpoints={{
-              600: {
-                slidesPerView: 3,
-                spaceBetween: 20,
-              },
-              900: {
-                slidesPerView: 4,
-                spaceBetween: 30,
-              },
-            }}
-            className="w-full"
-          >
-            {images.map((item) => (
-              <SwiperSlide key={item.id}> 
-                <img
-                  src={item.img}
-                  alt={`foto${item.id}`}
-                  className=""
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
 
-        {/* Stack para mobile */}
-        </div>
+        <div className="flex justify-center items-center w-full mt-6">
+          {/* Carrossel para desktop */}
+          <div className="hidden md:block w-full">
+            <Swiper
+              modules={[Autoplay]}
+              spaceBetween={20}
+              slidesPerView={2}
+              loop={true}
+              autoplay={{
+                delay: 1500,
+                disableOnInteraction: false,
+              }}
+              breakpoints={{
+                600: {
+                  slidesPerView: 3,
+                  spaceBetween: 20,
+                },
+                900: {
+                  slidesPerView: 4,
+                  spaceBetween: 30,
+                },
+              }}
+              className="w-full"
+            >
+              {images.map((item) => (
+                <SwiperSlide key={item.id}>
+                  <img
+                    src={item.img}
+                    alt={`foto${item.id}`}
+                    className=""
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            {/* Stack para mobile */}
+          </div>
           <div className="block md:hidden">
             <Stack
               randomRotation={true}

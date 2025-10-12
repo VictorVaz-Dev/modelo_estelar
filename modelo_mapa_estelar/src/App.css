@@ -1,3 +1,24 @@
+:root {
+  --space-900: #070b1a;
+  /* base azul bem escuro */
+  --indigo-950: #0b1026;
+  --violet-900: #1a0f33;
+  --cosmic-blue: #6ba8ff;
+  --cosmic-purple: #a78bfa;
+  --cosmic-gold: #facc15;
+  /* dourado */
+}
+
+.cosmic-bg {
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 800px at 10% -10%, color-mix(in oklab, var(--cosmic-blue) 35%, transparent) 0%, transparent 60%),
+    radial-gradient(900px 700px at 90% 0%, color-mix(in oklab, var(--cosmic-purple) 35%, transparent) 0%, transparent 60%),
+    radial-gradient(700px 500px at 50% 110%, color-mix(in oklab, var(--cosmic-gold) 30%, transparent) 0%, transparent 60%),
+    linear-gradient(180deg, var(--indigo-950) 0%, var(--violet-900) 60%, var(--space-900) 100%);
+  background-attachment: fixed;
+}
+
 .swiper {
   width: 100%;
   padding-bottom: 20px;
